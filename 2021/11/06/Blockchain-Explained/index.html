@@ -1,0 +1,161 @@
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content=Polycaman's Informative Logs >
+  <meta name="keywords" content=polycaman,logs,posts >
+
+  <head>
+    <title>
+      Blockchain Explained [ Polycaman Logs ]
+    </title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+
+    <link rel="stylesheet" href="/css/header.css">
+<div class="header">
+  <div class="logo">
+    <span class="pull-left">
+      <a id="site-name" href="/">
+        Polycaman
+      </a>
+    </span>
+  </div>
+  <ul class="nav-list">
+    
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about">
+          About Me
+        </a>
+      </li>
+      
+  </ul>
+</div>
+
+      <!--<link rel="stylesheet" href="/css/top-header.css">
+<div id="top-bar" class="fixed">
+
+  <a class="goto-top" href="#"></a>
+  <ul class="bar-list bar-list-1">
+    
+      <li>
+        <p>
+          <a href="/">
+            <text class="bar-text bar-p1">
+              Home
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
+      
+      <li>
+        <p>
+          <a href="/about">
+            <text class="bar-text bar-p1">
+              About Me
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
+      
+  </ul>
+</div>-->
+
+        <div id="content-outer">
+          <div class="content-inner">
+            <link rel="stylesheet" href="/css/post.css">
+<div class="posts">
+  <a href="/index.html"><i class="fa fa-home
+replay-btn" aria-hidden="true"></i></a>
+  <div class="post-title">
+    <p>
+      Blockchain Explained
+    </p>
+    <hr>
+  </div>
+  <div class="post-content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Hello, since you are here, you might be wondering what is going on around since all this crypto currencies trending nearly everywhere. My posts are mostly technical, so I will be introducting the whole system step by step. Before starting our explanation, I would like you to know that I will be using Anders Brownworth’s demo pages, please check out the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/">website</a> of this brilliant man.</p>
+<h2 id="Let’s-Start"><a href="#Let’s-Start" class="headerlink" title="Let’s Start"></a>Let’s Start</h2><h3 id="What-is-a-Hash"><a href="#What-is-a-Hash" class="headerlink" title="What is a Hash?"></a>What is a Hash?</h3><p>So the first question is what is a “Hash”. We can say a Hash is a non returnable string conversion algorithm. If you are wondering what does it mean, let’s make an example:</p>
+<p>Let’s say we have an algorithm called “EXAMPLE” and we input a word as “car” and it outputs a string as “0a8b7c”.</p>
+<p>Let’s say we gave another word as “problem” and the output is “78d9sa”, no matter how much word we give, it is returning a mixture of letters and numbers and the length of the output is always 6. Also there is no way to decrypt this, since it is not returning anything meaningful. The important thing here is, it outputs the same characters when we input the same word.</p>
+<p>A simple use of hashing could be used for passwords. Let’s say you have a website, users are registering your website with their own private passwords. You could store those passwords and check if it matches every time they attempt to login. But that would be not secure, because you are keeping their private passswords in a database when you don’t need to. You don’t need it because you could’ve hash their passwords and store the hashed version of their passwords, since every time you hash the same thing, it gives the same result and you can always check if they match when a login attempted. </p>
+<p>Like our “EXAMPLE” algorithm, there are tons of different hashing algorithms out there. The one we are interested in while working with crypto currencies would be the SHA256 algorithm.</p>
+<p>You can check the [SHA256 Algorithm Demo](link here).</p>
+<p>If we don’t give anything, means if we give an empty string as an input to SHA256, it outputs the following 64 characters long string:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Output: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span><br></pre></td></tr></table></figure>
+<p>If we hash the word “car” for an example, the output is again 64 characters long:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Output: 2b2961a431b23c9007efe270c1d7eb79c19d4192d7cd2d924176eb0b19e7d2a1</span><br></pre></td></tr></table></figure>
+<p>No matter how long the input text would be, the output is always 64 characters long. For an example, this is the hash of Edgar Allan Poe’s Annabel Lee poem:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Output: 70dd803b51d784fba333ae51221a87ade107eb8d2e1a9629ad87b1d8f08e5b20</span><br></pre></td></tr></table></figure>
+<p>This hash is 64 characters long, but Annabel Lee poem was 1582 characters long.</p>
+<p>I believe you understood what a hash is and what a hashed string means, so let’s continue.</p>
+<h3 id="What-is-a-Block"><a href="#What-is-a-Block" class="headerlink" title="What is a Block?"></a>What is a Block?</h3><p>To understand what a “Block” is, it is actually the same thing as hashing. But this time, we have 3 different strings as an input and 1 hashed string as an output. Now we call our inputs as sections, since we have 3 inputs, we have 3 sections. We will call our sections as Block, Nonce and Data. You can also try out the Block mechanism from the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/block">Block Demo by Anders Brownworth</a>.</p>
+<p>As you can see from the demo, Block=”1”, Nonce=”72608” and Data=”” retuns the following hash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000f727854b50bb95c054b39c1fe5c92e5ebcfa4bcb5dc279f56aa96a365e5a</span><br></pre></td></tr></table></figure>
+<p>The important thing here is, this hash starts with 0000, let’s say if a hash is starting with four zeros, we will call this block as a “signed” block. Just go over the demo page and enter some value to the data field, then press the Mine button to start the mining process. In another words, find the nonce value to have a signed hash.</p>
+<h3 id="What-is-a-Blockchain"><a href="#What-is-a-Blockchain" class="headerlink" title="What is a Blockchain?"></a>What is a Blockchain?</h3><p>Basically, now we know what a block is. Blockchain is actually a combination of the blocks. Please look at the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/blockchain">Blockchain Demo</a>. Now you will see 4 sections as Block, Nonce, Data and a new section called Prev. Remember we were combining Block, Nonce and Data value, then hashing this walue with the SHA256 algorithm. Now we are also adding the prev value to our combination. The first block has the following Prev value:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000000000000000000000000000000000000000000000000000000000000000</span><br></pre></td></tr></table></figure>
+<p>As you can see here, for our first block, our Prev value is just zeros with a length of 64, which means it is the starting node of the chain. If we add a value to the data section of our first block, you will see that out hash is being not signed(it doesn’t have 0000 at the start). After adding some value to the data, press the Mine button. You will see the that we have a new nonce value for our first block, which makes the hash signed. But then you will see that the signed hash of our first block is the Prev value of our second block, and now we have to mine each block one by one to make our blockchain signed.</p>
+<p>If we add a value to the 3’rd Block’s data section, we have to mine 3’rd, 4’th and 5’th blocks. That means if you change a value anywhere in the chain, you have to mine the rest of the chain to make all the hashes signed.</p>
+<h3 id="What-is-a-Distributed-Blockchain"><a href="#What-is-a-Distributed-Blockchain" class="headerlink" title="What is a Distributed Blockchain?"></a>What is a Distributed Blockchain?</h3><p>So for now, we know what a Blockchain is. Let’s say we have 3 computers, the name of our computers are A, B and C. From now on, we will call our computers as the Peers. So now, please open <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/distributed">Distributed Blockchain Demo</a> in your browser. In the page, we have 5 blocks like we had in the Blockchain Demo. But we have 3 different peers called as Peer A, Peer B and Peer C. All the peers has the same identical values. Let’s say we add or changed a value in Peer A’s 3’rd block. We will see that the rest of the chain is changed for the Peer A. We can mine the rest of the blocks and make the chain signed for the Peer A. But now Peer B and Peer C has the same value for their 5’th Block’s hash while  Peer A has another value for it’s 5’th Block’s hash. That means 2 peer has a different value than one of the peers. That means Peer A is wrong. Peer A will be kicked out from the system because it is suspicious.</p>
+<h3 id="How-do-we-add-a-money-system-to-a-Blockchain"><a href="#How-do-we-add-a-money-system-to-a-Blockchain" class="headerlink" title="How do we add a money system to a Blockchain?"></a>How do we add a money system to a Blockchain?</h3><p>Just think about the Distributed Blockchain Demo. Now we will change our Data field to a Transaction field(in the demo, it will called as Tx). Basically, the Transaction Field is a table that has 3 columns a money value, a sender and a reciever column. Please look at the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/tokens">Token Demo</a>. As you will see from Peer A’s first block’s first transaction row, Darcy transacted 25$ to Bingley. So we are able to store this information, but how do we know that Darcy has 25$?</p>
+<p>There comes the Coinbase, now we have an additional section called Coinbase for each of our blocks. Please look at the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/coinbase">Coinbase Demo</a>. Here we see in the fist block of each peer, Anders has 100$ from the Conbase, and in the second block of each peer we see that Anders transacted his 100$ to Sophia, Lucas, Emily and Madison. How do we know if any of the peers cheated or not? Basically we will look at the signed hashes and we will know one peer is cheating. And then we will kick the Blockchain of the Peer A from our Blockchain system.</p>
+<p>So now we know the meanings of Hash, Block, Blockchain, Distributed Blockchain, Transaction in the Distributed Blockchains and the Coinbase system.</p>
+<h3 id="What-is-a-Public-Key-and-a-Private-Key"><a href="#What-is-a-Public-Key-and-a-Private-Key" class="headerlink" title="What is a Public Key and a Private Key?"></a>What is a Public Key and a Private Key?</h3><p>Let’s say we want to encrypt some information. There are tons of different algorithms to encrypt messages. But most trusted encrption algorithms basically would have public and private keys, they are called asymmetric encrption methods. </p>
+<p>Let’s say Alice wants to send a message to Bob privately. Alice should take Bob’s public key, encrypt her message and sends this message to Bob. When Bob receives the message, he takes his private key that only he knows and decrypts the message. </p>
+<p>Here we know that the public key is generated over a private key, and can only be decrypted with the private key. When Bob sent his public key to Alice, even though Alice used this public key to encrypt the message, it can be decryped by the original private key. So in that equation, no one between can see the message in any way.</p>
+<p>You can try out the generation of the public keys from the private keys from this <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/public-private-keys/keys">Demo</a>.</p>
+<h3 id="What-is-the-Signature"><a href="#What-is-the-Signature" class="headerlink" title="What is the Signature?"></a>What is the Signature?</h3><p>Think about the message transaction with the public and private keys. Now we don’t want to send a message, but we want to “verify” a message. Check out this <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/public-private-keys/signatures">Demo</a> page.</p>
+<p>When you open the <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/public-private-keys/signatures">Demo</a>, you will see that we have 2 tabs called Sign and Verify. First, please focus on the Sign tab. We have 3 sections here and a button called “Sign”. Please wite a message to the Message section. As you can see we have a Private key and we will use our pivate key to have a Message Signature. After writing your message, please hit the Sign button and open the Verify tab. In here you will see we still have our message and the message signature from the Sign tab. What we have differently is, we have a Public Key here. Just think that we are another person now. We know the Public Key that is generated from the Private Key, we know the Message Signature and we want to know if the Message is correct. Please hit the Verify button and see if the message is correct.</p>
+<p>This way, we can validate if an information is correct or not. Also don’t forget that a Private Key should only be known by the owner of the key. But everybody can now the Public Keys, you don’t have to hide a Public Key.</p>
+<p>To understand our cause, please look at this <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/public-private-keys/transaction">Transaction Demo</a>. The only difference here is, we have a transaction information instead of a message. But as you can see, the “From” column and the “-&gt;” column has Public Keys of the people instead of their names. That way we know a Public Key of someone, transacted some amount of money to a Private Key of someone. Here we are signing a transaction information, and we can validate this transaction with this signature key.</p>
+<p>Eventually, you can check out the final version of the Distributed Blockchain Transaction System  from this <a target="_blank" rel="noopener" href="https://andersbrownworth.com/blockchain/public-private-keys/blockchain">Demo</a> where every transaction has a signature to verify. </p>
+<h3 id="How-it-all-works-in-Bitcoin"><a href="#How-it-all-works-in-Bitcoin" class="headerlink" title="How it all works in Bitcoin?"></a>How it all works in Bitcoin?</h3><p>It all started when the guy called Sathoshi Nakamoto published a paper called “Bitcoin: A Peer-to-Peer Electonic Cash System”.</p>
+<p>Let’s say you will create a Coin System called Somethingcoin whit a short name of STC. At the start of STC, people will pay with other currencies to have some STC from the Coinbase, which will create the market value of the STC. Let’s say in the first block, somebody bought 100 STC for 100$. That means in the market, 1 STC will be equal to 1$. Then this person paid 10STC to another person to buy something, that means the second person is in the STC system now. While these are happening, at the next blocks, some other people paid dollars to buy STC’s from other people. That will raise the market value of the STC. Since every block should be mined to be signed, it will be harder to mine the next transactions/blocks as the time passes. And the validation will be made between peers, but as the new blocks created, the system will be more trusted, since we can also go to the previous blocks to verify the transaction history.</p>
+<h3 id="So-how-a-miner-gets-a-reward"><a href="#So-how-a-miner-gets-a-reward" class="headerlink" title="So how a miner gets a reward?"></a>So how a miner gets a reward?</h3><p>As you might know, to sign, or in other words, to create a new block, some processing should be made. If you are the miner that is successful to create the successful block, you will be rewarded by the system algorithms with some STC’s. That also decreases the market value of the STC, but as the people invest more and more money in the STC system, the market value will always grow. But if somebody would sell some STC’s to buy dollars, it would decrease the STC value like all other currencies.</p>
+<h3 id="What-is-the-difference-of-a-Coin-System"><a href="#What-is-the-difference-of-a-Coin-System" class="headerlink" title="What is the difference of a Coin System?"></a>What is the difference of a Coin System?</h3><p>As you might know, a currency is meaningful of it’s own central bank. Also, all the transaction information (very similiar to the Blocks) will be stored in the databases of the banks. The difference here is, basically no government or authority has a control over the currency. Normally, banks can print more money and create inflation over the currency. In a crypto system, printing a new money is the reward, and the rewards are getting harder to achieve by the time. That means the money is more trusted than a bank’s money.</p>
+<h3 id="Finish"><a href="#Finish" class="headerlink" title="Finish"></a>Finish</h3><p>I will be glad if I would describe the Crypto Currency Systems to you successfully. Please keep in touch for my further posts. See you</p>
+
+  </div>
+  
+</div>
+          </div>
+        </div>
+
+        <link rel="stylesheet" href="/css/footer.css">
+<div class="bottom-outer">
+  <div class="copyright">©2021 By Polycaman</div>
+  <div class="framework-info">
+    <span>Power by</span>
+    <a class="a1" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>Theme by</span>
+    <a class="a2" target="_blank" rel="noopener" href="https://github.com/redhat123456/hexo-theme-MiHoYo">MiHoYo</a>
+  </div>
+</div>
+
+          
+            <!-- scripts list from theme config.yml -->
+            
+              <script src="/js/MiHoYo.js"></script>
+              
+                
+
+  </body>
+
+  </html>
